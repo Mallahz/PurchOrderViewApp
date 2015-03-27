@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<base href="/">
+
+		<title>Purchasing Order View App</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> <!-- Font Awesome -->
+		<!-- <link rel="stylesheet" href="ng-grid/ng-grid.css"> -->
+
+		<!-- JS -->
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="libs/angular/angular.min.js"></script>
+		<script src="libs/angular-route/angular-route.min.js"></script>
+		<script src="js/services/solomonsvc.js"></script>
+		<script src="js/xmltojson/lib/xmltojson.js"></script>
+		<!-- // <script src="ng-grid/ng-grid.js"></script> -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://demos.amitavroy.com/learningci/assets/js/xml2json.js" charset="UTF-8"></script>
+
+		<!-- ANGULAR CUSTOM -->
+		<!-- // <script src="js/controllers/app.controller.js"></script>  -->
+		<script src="js/routes/app.routes.js"></script>
+		<script src="js/app.module.js"></script>
+		<!-- // <script src="js/services/solomonsvc.js"></script> -->
+		<!-- // <script src="js/controllers/app.controller.js"></script> -->
+		
+	</head>
+	<body ng-app="purchOrder"> 
+		<div class="container">
+
+			<!-- ANGULAR DYNAMIC CONTENT -->
+			<!-- <div ng-view></div> -->
+
+			<span style="width: 200px">Please input a Project ID</span>
+			<form class="Simple-form" ng-submit="submit()" ng-controller="MasterDetailCtrl">
+				<input type="text" ng-model="pid" name="pid" placeholder='55990' />
+				<input type="submit" id="submit" value="Submit" />
+			</form>
+			<br />
+			<!-- <span style="width: 200px">ID of selected customer: </span>
+			<span style="width:80px;border:1px solid #B0B0B0;">{{selectedCustomer}}</span>
+			<br />
+			<br /> -->
+			This customer has {{POs.length}} orders.
+			<br />
+			<ul>
+			    <li ng-repeat='po in POs'>
+			        <span >PO # {{po.PONbr}}</span>
+			        <span style="width:225px">Quantity Ordered: {{po.QtyOrd}}</span>
+			        <span style="width:225px">Quantity Remaining: {{po.QtyRemaining}}</span>
+			        <span style="width:225px">Quantity Shipped: {{po.QtyShip}}</span>
+			        <span style="width:225px">Inventory ID: {{po.InvtId}}</span>
+			        
+			    </li>
+			</ul>
+			<span style="color:Red;">{{errorMessage}}</span>
+			
+		</div>
+	</body>
+</html>
